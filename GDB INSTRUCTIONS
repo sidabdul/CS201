@@ -1,0 +1,3 @@
+sidali@fab01:~/Desktop/class_struct$               g++ *.cpp -g
+sidali@fab01:~/Desktop/class_struct$               gdb a.out
+

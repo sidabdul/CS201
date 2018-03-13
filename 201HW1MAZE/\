@@ -1,0 +1,130 @@
+/*
+
+ Sid Abdullahi
+ 4/3/2016
+ CS201 HW 1
+ 
+ The purpose of this program is to construct a maze given from an input txt file into a dynamically allocated 2 dimentional array. 
+ This assignments objective is to design and develop a maze solving application. This program we will use
+ the Wall Follower algorithm. 
+
+  The alogorthim used is :
+
+  4.2 Wall Follower Algorithm
+
+  The next step involves the implementation of the Wall Follower Algorithm. The algorithm is based on 4
+  movement rules. Also, the algorithm requires you to keep track of the direction the person is facing. As
+  this rules are always with respect to the direction the person is facing. The rules are as follow:
+  
+  1) If there is no Wall at the Right of the person: Turn Right and walk one block
+
+  2) Else, If there is no wall forwards: Walk one block
+
+  3) Else, if there is no Wall at the Left of the person: Turn Left and walk one block
+
+  4) Else Turn 180 degrees and walk one block
+
+ 
+  This algorithm assumes that all the walls of the maze are connected
+  together or to the maze’s outer boundary, therefore, following the wall at some point will lead you to
+  the exit.
+
+
+
+*/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(int argc, char * argv[])
+{
+
+  //Get row and columns infromation from the maze text file, store into these varibles to dymanically allocate the array..
+  int maze_rows = 0;
+  int maze_columns = 0; 
+
+
+  FILE * file = fopen(argv[1], "r");  
+
+
+  char buffer[1500];
+
+
+  int ii=0
+  while (fgets(buffer[ii],sizeof buffer,file)!= NULL)
+    {  
+
+      fprintf (stdout,"%s", buffer);
+
+    }
+      
+      printf ("\n");
+
+
+
+  char * pEnd;
+  long int li1;
+  li1 = strtol (buffer,&pEnd,10);
+
+
+
+  printf ("\n");
+  
+ 
+  fprintf (stdout," %s", buffer);
+  
+ 
+
+  printf ("\n");
+
+
+  printf ("The first number for rows is : %ld", li1);
+
+
+  printf ("\n");
+  //printf(" Maze Columns : %d\n Maze Rows : %d\n ", &maze_rows, &maze_columns);
+
+
+
+  //Dynamically allocated two dimenstionasl array is defined here..
+  char ** maze;
+
+  int i;
+  
+  maze = (char**) malloc(sizeof(char*) * 4);
+  
+  for(i=0; i < 4; i++)
+  {
+     maze[i] = (char*) malloc(sizeof(char) * 3);
+  }
+
+
+
+  //Deallocate the dymanic memory!
+  for(i=0; i < 4; i++) 
+  {
+     free( maze[i] );
+  }
+
+
+  //Delete the maze array!
+  free( maze );
+
+
+
+  for(i=0; i < maze_rows; i++)
+  {
+   // fgets(maze[i], maze_columns+2, yourfile);
+  }
+
+
+
+}
+
+
+
+
+
+
